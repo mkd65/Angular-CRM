@@ -2,3 +2,7 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+a.nav-link.active{
+  color:red
+}

@@ -1,1 +1,16 @@
-<p>list-clients works!</p>
+<p>list-clients worksd!</p>
+
+<app-button  text="Add client" (btnSubmitted)="goToAddClient()" ></app-button>
+
+<app-tableau *ngIf="clients.length>0 ; else NoData" [headers]="['Name','email','Status','CA']">
+  <tr *ngFor="let client of clients">
+     <td>{{client.name | uppercase }}</td>
+    <td>{{client.email}}</td>
+    <td>{{client.state | star}}</td>
+    <td>{{client.ca | currency:'EUR'}}</td>
+    </tr>
+</app-tableau>
+
+<ng-template #NoData>
+  <h1>No Clients</h1>
+</ng-template>

@@ -1,0 +1,40 @@
+{
+  "orders": [
+    {
+      "tjmHt": 1200,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "Confirmed",
+      "typePresta": "formation",
+      "client": "Modis",
+      "comment": "merci modis",
+      "id": 3
+    }
+  ],
+  "clients": [
+    {
+      "state": "Active",
+      "id": 1,
+      "email": "test@test.test",
+      "name": "Christophe2",
+      "ca": 52000,
+      "comment": "un comment pour client christophe2"
+    },
+    {
+      "state": "Inactive",
+      "id": 2,
+      "email": "test@test.test",
+      "name": "Modis",
+      "ca": 120000,
+      "comment": "un comment pour client modis"
+    },
+    {
+      "state": "Inactive",
+      "id": 3,
+      "email": "test@test.test",
+      "name": "sss",
+      "ca": 10000,
+      "comment": null
+    }
+  ]
+}

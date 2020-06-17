@@ -6,9 +6,9 @@ import { EditClientComponent } from './containers/edit-client/edit-client.compon
 
 
 const routes: Routes = [
-  { path: 'clients', component: ListClientsComponent },
-  { path: 'clients/add', component: AddClientComponent },
-  { path: 'clients/edit', component: EditClientComponent }
+  { path: '', component: ListClientsComponent },
+  { path: 'add', component: AddClientComponent },
+  { path: 'edit', component: EditClientComponent }
 ];
 
 @NgModule({

@@ -74,7 +74,23 @@
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 
 
-const routes: Routes &#x3D; [];
+const routes: Routes &#x3D; [
+  {
+    path: &#x27;clients&#x27; ,
+  loadChildren: () &#x3D;&gt; &quot;import(&#x27;./clients/clients.module&#x27;)\
+  .then((m) &#x3D;&gt; m.ClientsModule )&quot;
+  },
+  {
+    path: &#x27;orders&#x27; ,
+  loadChildren: () &#x3D;&gt; &quot;import(&#x27;./orders/orders.module&#x27;)\
+  .then((m) &#x3D;&gt; m.OrdersModule )&quot;
+  },
+  {
+    path: &#x27;**&#x27; ,
+  loadChildren: () &#x3D;&gt; &quot;import(&#x27;./page-not-found/page-not-found.module&#x27;)\
+  .then((m) &#x3D;&gt; m.PageNotFoundModule )&quot;
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

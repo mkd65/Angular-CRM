@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { VersionService } from 'src/app/shared/version.service';
-
+import { map } from 'rxjs/operators'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   version;
   ngOnInit(): void {
     this.versioService.version
+    .pipe(map(v => v*10))
     .subscribe(
       (data) =>     this.version = data
     );

@@ -7,18 +7,24 @@ import { VersionService } from 'src/app/shared/version.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-ver
-  constructor(private versionService:VersionService) { }
+
+  user = { username: '', password: ''};
+  register(){
+     console.log(this.user);
+   }
+
+   constructor(private versionService: VersionService) { }
 
   ngOnInit(): void {
   }
 
-  up(){
+  up() {
     this.versionService.up();
   }
-  down(){
+  down() {
     this.versionService.down();
 
   }
+
 
 }

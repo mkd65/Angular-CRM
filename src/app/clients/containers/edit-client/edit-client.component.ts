@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ClientService } from '../../services/client.service';
+import { Route } from '@angular/compiler/src/core';
+import { Client } from 'src/app/shared/interfaces/client';
 
 @Component({
   selector: 'app-edit-client',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditClientComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private route: ActivatedRoute, private clientService: ClientService, private router: Router) { }
+  id; client;
   ngOnInit(): void {
+    this.route.paramMap.subscribe(
+      (parmas) => {
+        this.id = parmas.get('id');
+        this.clientService.get(this.id).subscribe(
+          (data) => this.client = data
+        );
+      }
+    )
+  }
+
+  editClient(data: Client) {
+    data.id = this.id;
+    this.clientService.update(data).subscribe((d) => {
+      this.router.navigate(['/clients'])
+    })
   }
 
 }

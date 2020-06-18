@@ -8,16 +8,18 @@ import { EditClientComponent } from './containers/edit-client/edit-client.compon
 import { SharedModule } from '../shared/shared.module';
 import { TemplatesModule } from '../templates/templates.module';
 import { FormsModule } from '@angular/forms';
+import { FormClientComponent } from './components/form-client/form-client.component';
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 @NgModule({
-  declarations: [ListClientsComponent, AddClientComponent, EditClientComponent],
+  declarations: [ListClientsComponent, AddClientComponent, EditClientComponent, FormClientComponent],
   imports: [
     CommonModule,
     FormsModule,
     ClientsRoutingModule,
     SharedModule,
-    TemplatesModule
+    TemplatesModule, ReactiveFormsModule
   ]
 })
 export class ClientsModule { }

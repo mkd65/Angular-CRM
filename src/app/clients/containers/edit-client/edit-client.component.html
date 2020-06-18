@@ -1,1 +1,3 @@
-<p>edit-client works!</p>
+<ng-container *ngIf="client">
+<app-form-client [initClient]="client" (submittedClient)="editClient($event)" ></app-form-client>
+</ng-container>

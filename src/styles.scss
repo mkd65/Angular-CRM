@@ -2,7 +2,15 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import 'theme';
 
 a.nav-link.active{
   color:red
+}
+
+.state-active{
+  background-color: $color1;
+}
+.state-inactive{
+  background-color: $color2;
 }

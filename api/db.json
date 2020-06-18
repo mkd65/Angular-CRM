@@ -13,7 +13,7 @@
   ],
   "clients": [
     {
-      "state": "Active",
+      "state": "Inactive",
       "id": 1,
       "email": "test@test.test",
       "name": "Christophe2",

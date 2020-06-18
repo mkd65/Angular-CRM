@@ -6,6 +6,7 @@ import { ListOrdersComponent } from './containers/list-orders/list-orders.compon
 import { AddOrderComponent } from './containers/add-order/add-order.component';
 import { EditOrderComponent } from './containers/edit-order/edit-order.component';
 import { SharedModule } from '../shared/shared.module';
+import { TemplatesModule } from '../templates/templates.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     OrdersRoutingModule,
-    SharedModule
+    SharedModule,
+    TemplatesModule
   ]
 })
 export class OrdersModule { }

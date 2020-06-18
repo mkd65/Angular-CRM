@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClientService } from '../../services/client.service';
 import { Client } from 'src/app/shared/interfaces/client';
+import { ClientStateEnum } from 'src/app/shared/enums/client-state-enum.enum';
 
 @Component({
   selector: 'app-list-clients',
@@ -10,6 +11,7 @@ import { Client } from 'src/app/shared/interfaces/client';
 })
 export class ListClientsComponent implements OnInit {
   clients : Client[] =[];
+  clientStates = Object.values(ClientStateEnum);
   constructor(private router : Router ,private clientService : ClientService) { }
 
   ngOnInit(): void {
@@ -21,5 +23,15 @@ export class ListClientsComponent implements OnInit {
 
   goToAddClient(){
     this.router.navigate(['/clients','add'])
+  }
+
+  updateClient(event,client){
+    console.log(event);
+    this.clientService.update(client).subscribe(
+      (data) => {
+        console.log(data);
+        alert('good update');
+      }
+    )
   }
 }

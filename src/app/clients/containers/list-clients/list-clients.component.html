@@ -1,16 +1,23 @@
-<p>list-clients worksd!</p>
+<app-template-a title="Les Clients" subTitle="liste des clients">
+  <app-button text="Add client" (btnSubmitted)="goToAddClient()"></app-button>
 
-<app-button  text="Add client" (btnSubmitted)="goToAddClient()" ></app-button>
-
-<app-tableau *ngIf="clients.length>0 ; else NoData" [headers]="['Name','email','Status','CA']">
-  <tr *ngFor="let client of clients">
-     <td>{{client.name | uppercase }}</td>
-    <td>{{client.email}}</td>
-    <td>{{client.state | star}}</td>
-    <td>{{client.ca | currency:'EUR'}}</td>
+  <app-tableau
+    *ngIf="clients.length > 0; else NoData"
+    [headers]="['Name', 'email', 'Status', 'CA']"
+  >
+    <tr *ngFor="let client of clients">
+      <td>{{ client.name | uppercase }}</td>
+      <td>{{ client.email }}</td>
+      <td appState [state]="client.state">{{ client.state | star }}
+        <select [(ngModel)]="client.state" (change)="updateClient($event,client)">
+          <option *ngFor="let state of clientStates" [value]="state">{{state}}</option>
+        </select>
+      </td>
+      <td>{{ client.ca | currency: "EUR" }}</td>
     </tr>
-</app-tableau>
+  </app-tableau>
 
-<ng-template #NoData>
-  <h1>No Clients</h1>
-</ng-template>
+  <ng-template #NoData>
+    <h1>No Clients</h1>
+  </ng-template>
+</app-template-a>

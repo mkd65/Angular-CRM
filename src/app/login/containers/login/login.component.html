@@ -2,6 +2,7 @@
 <button (click)="up()">+</button>
 <button (click)="down()">-</button>
 
+<lib-happy-button></lib-happy-button>
 <form (ngSubmit)='register()' #formLogin="ngForm">
 
   <div>
@@ -15,6 +16,6 @@
     <input type="password" name="password" [(ngModel)]="user.password" >
   </div>
 
-  <h1>form valide ? {{ formLogin }}</h1>
+  <h1>form valide ? {{ formLogin.valid }}</h1>
   <button class="btn btn-primary" type='submit' [disabled]="formLogin.invalid"> Register  </button>
 </form>

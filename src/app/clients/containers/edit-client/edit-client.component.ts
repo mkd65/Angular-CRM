@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from '../../services/client.service';
 import { Route } from '@angular/compiler/src/core';
 import { Client } from 'src/app/shared/interfaces/client';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-edit-client',
@@ -13,7 +14,9 @@ export class EditClientComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private clientService: ClientService, private router: Router) { }
   id; client;
-  ngOnInit(): void {
+
+
+  ngOnInit1(): void {
     this.route.paramMap.subscribe(
       (parmas) => {
         this.id = parmas.get('id');
@@ -22,6 +25,17 @@ export class EditClientComponent implements OnInit {
         );
       }
     )
+  }
+
+  ngOnInit(): void {
+    this.route.paramMap.pipe(
+      switchMap((params) => {
+        const id = params.get('id');
+        return this.clientService.get(id);
+      })).subscribe(
+        (data) => this.client = data
+      );
+
   }
 
   editClient(data: Client) {

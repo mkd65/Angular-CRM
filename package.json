@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "generateDoc": "compodoc -p tsconfig.json -o -s",
-    "bundleAnalyze" : "ng build --prod --stats-json && webpack-bundle-analyzer dist/crm/stats-es2015.json",
-    "api":"json-server -p 5000  --watch api/db.json"
+    "bundleAnalyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/crm/stats-es2015.json",
+    "api": "json-server -p 5000  --watch api/db.json"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.8",
+    "@angular-devkit/build-ng-packagr": "~0.901.8",
     "@angular/cli": "~9.1.8",
     "@angular/compiler-cli": "~9.1.11",
     "@compodoc/compodoc": "^1.1.11",
@@ -46,6 +47,7 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "ng-packagr": "^9.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
